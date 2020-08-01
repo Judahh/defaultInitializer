@@ -1,0 +1,20 @@
+TODO: Use database manipulation from simple API to
+
+Where:
+Read         Service        Anything
+ |----Event---->|              |
+ |              |-----Call---->|
+ |              |              |
+ |              |              |
+ |              |              |
+ |              |              |
+ |              |              |
+ |              |<---return----|
+ |              |
+ |              |-----Call---->|
+ |              |              |
+ |              |              |
+ |              |<---return----|
+ |<---return----|              |
+
+ Call using journaly
