@@ -1,6 +1,6 @@
 {
   "name": "default-initializer",
-  "version": "0.0.1-t",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/source/index.js",
   "publishConfig": {
