@@ -4,16 +4,14 @@ import { Journaly } from 'journaly';
 settings.initFunction = 'init';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default class Default {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore
-  protected element: string;
+  protected element: string | undefined;
 
-  protected journaly: Journaly<any>;
+  protected journaly: Journaly<any> | undefined;
 
   protected baseClass = 'Default';
 
   public constructor(initDefault: DefaultInitializer) {
-    this.journaly = initDefault.journaly;
+    this.init(initDefault);
   }
   protected init(initDefault: DefaultInitializer): void {
     this.journaly = initDefault.journaly;
