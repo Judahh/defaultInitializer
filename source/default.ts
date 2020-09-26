@@ -6,7 +6,7 @@ settings.initFunction = 'init';
 export default class Default {
   protected element: string | undefined;
 
-  protected journaly: Journaly<any> | undefined;
+  protected journaly: Journaly<any> | Journaly<unknown> | Journaly<never> | undefined;
 
   protected baseClass = 'Default';
 
