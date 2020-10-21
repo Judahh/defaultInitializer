@@ -6,7 +6,11 @@ settings.initFunction = 'init';
 export default class Default {
   protected element: string | undefined;
 
-  protected journaly: Journaly<any> | Journaly<unknown> | Journaly<never> | undefined;
+  protected journaly:
+    | Journaly<any>
+    | Journaly<unknown>
+    | Journaly<never>
+    | undefined;
 
   protected baseClass = 'Default';
 
@@ -29,8 +33,9 @@ export default class Default {
         const fullName = this.element + '.' + method;
         // console.log(fullName);
         if (
-          !this.journaly.getSubjects() ||
-          !this.journaly.getSubjects().includes(fullName)
+          this.journaly &&
+          (!this.journaly.getSubjects() ||
+            !this.journaly.getSubjects().includes(fullName))
         ) {
           const boundedMethod = this[method].bind(this);
           this.journaly.subscribe(fullName, boundedMethod);
