@@ -1,6 +1,10 @@
-import { Journaly } from 'journaly';
+import { SubjectObserver } from 'journaly';
 
 export default interface DefaultInitializer {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  journaly: Journaly<any> | Journaly<unknown> | Journaly<never> | undefined;
+  journaly:
+    | SubjectObserver<any>
+    | SubjectObserver<unknown>
+    | SubjectObserver<never>
+    | undefined;
 }
