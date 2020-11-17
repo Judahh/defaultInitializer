@@ -27,3 +27,4 @@ tslint.json
 .config.json
 .vscode
 .github
+.dccache
