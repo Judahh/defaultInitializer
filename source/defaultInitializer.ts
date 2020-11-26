@@ -1,3 +1,4 @@
+// file deepcode ignore no-any: any needed
 import { SubjectObserver } from 'journaly';
 
 export default interface DefaultInitializer {

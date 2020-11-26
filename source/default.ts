@@ -1,3 +1,4 @@
+// file deepcode ignore no-any: any needed
 import { settings } from 'ts-mixer';
 import DefaultInitializer from './defaultInitializer';
 import { SubjectObserver } from 'journaly';
@@ -14,17 +15,13 @@ export default class Default {
 
   protected baseClass = 'Default';
 
-  public constructor(initDefault: DefaultInitializer) {
+  constructor(initDefault?: DefaultInitializer) {
     this.init(initDefault);
   }
-  protected init(initDefault: DefaultInitializer): void {
-    this.journaly = initDefault.journaly;
 
-    if (!this.element || !this.constructor.name.includes(this.baseClass)) {
-      this.element = this.constructor.name;
-    }
-
-    if (!this.element.includes(this.baseClass)) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  protected initJournaly() {
+    if (this.element && !this.element.includes(this.baseClass)) {
       const methods = this.getAllMethods();
       // console.log(this.element);
       // console.log(methods);
@@ -42,6 +39,24 @@ export default class Default {
         }
       }
     }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  setJournaly(
+    journaly:
+      | SubjectObserver<any>
+      | SubjectObserver<unknown>
+      | SubjectObserver<never>
+  ) {
+    this.journaly = journaly;
+    this.initJournaly();
+  }
+  protected init(initDefault?: DefaultInitializer): void {
+    if (!this.element || !this.constructor.name.includes(this.baseClass))
+      this.element = this.constructor.name;
+
+    if (initDefault && initDefault.journaly)
+      this.setJournaly(initDefault.journaly);
   }
 
   private getAllMethods(): Array<any> {
