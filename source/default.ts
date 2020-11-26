@@ -1,3 +1,4 @@
+// file deepcode ignore no-any: any needed
 import { settings } from 'ts-mixer';
 import DefaultInitializer from './defaultInitializer';
 import { SubjectObserver } from 'journaly';
@@ -14,7 +15,7 @@ export default class Default {
 
   protected baseClass = 'Default';
 
-  public constructor(initDefault?: DefaultInitializer) {
+  constructor(initDefault?: DefaultInitializer) {
     this.init(initDefault);
   }
 
@@ -41,7 +42,7 @@ export default class Default {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  public setJournaly(
+  setJournaly(
     journaly:
       | SubjectObserver<any>
       | SubjectObserver<unknown>
