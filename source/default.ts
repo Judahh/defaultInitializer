@@ -5,15 +5,14 @@ import { SubjectObserver } from 'journaly';
 settings.initFunction = 'init';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default class Default {
-  protected element: string | undefined;
-
   protected journaly:
     | SubjectObserver<any>
     | SubjectObserver<unknown>
     | SubjectObserver<never>
     | undefined;
-
-  protected baseClass = 'Default';
+  private className!: string;
+  private name!: string;
+  private type!: string;
 
   constructor(initDefault?: DefaultInitializer) {
     this.init(initDefault);
@@ -21,13 +20,13 @@ export default class Default {
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected initJournaly() {
-    if (this.element && !this.element.includes(this.baseClass)) {
+    if (this.className) {
       const methods = this.getAllMethods();
       // console.log(this.element);
       // console.log(methods);
 
       for (const method of methods) {
-        const fullName = this.element + '.' + method;
+        const fullName = this.className + '.' + method;
         // console.log(fullName);
         if (
           this.journaly &&
@@ -51,10 +50,47 @@ export default class Default {
     this.journaly = journaly;
     this.initJournaly();
   }
-  protected init(initDefault?: DefaultInitializer): void {
-    if (!this.element || !this.constructor.name.includes(this.baseClass))
-      this.element = this.constructor.name;
 
+  setName(name: string): void {
+    this.name = name;
+  }
+
+  setClassName(className: string): void {
+    this.className = className;
+  }
+
+  setType(type: string): void {
+    this.type = type;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  getClassName(): string {
+    return this.className;
+  }
+
+  getType(): string {
+    return this.type;
+  }
+
+  protected generateClassName(): void {
+    this.setClassName(this.constructor.name);
+  }
+
+  protected generateName(): void {
+    this.setName(this.getClassName());
+  }
+
+  protected generateType(): void {
+    this.setType('');
+  }
+
+  protected init(initDefault?: DefaultInitializer): void {
+    this.generateType();
+    this.generateClassName();
+    this.generateName();
     if (initDefault && initDefault.journaly)
       this.setJournaly(initDefault.journaly);
   }
