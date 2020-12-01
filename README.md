@@ -6,8 +6,10 @@
 
 A default initilizer for
 [flexiblepersistence](https://github.com/Judahh/flexiblePersistence).
+
 ## People
 
-The original author of defaultInitializer is [Judah Lima](https://github.com/Judahh)
+The original author of defaultInitializer is
+[Judah Lima](https://github.com/Judahh)
 
 [List of all contributors](https://github.com/Judahh/defaultInitializer/graphs/contributors)
