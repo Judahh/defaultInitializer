@@ -1,7 +1,11 @@
 {
-  "name": "default-initializer",
-  "version": "0.1.1",
-  "description": "",
+  "name": "@flexiblepersistence/default-initializer",
+  "version": "0.1.0",
+  "description": "A default initilizer for flexiblepersistence",
+  "keywords": [
+    "initilizer",
+    "flexiblepersistence"
+  ],
   "main": "dist/source/index.js",
   "publishConfig": {
     "access": "public"
