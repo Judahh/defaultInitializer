@@ -75,8 +75,14 @@ export default class Default {
     return this.type;
   }
 
+  private getConstructorName(object) {
+    let name = object.constructor.name;
+    if (name.includes('_')) name = name.split('_')[1];
+    return name;
+  }
+
   protected generateClassName(): void {
-    this.setClassName(this.constructor.name);
+    this.setClassName(this.getConstructorName(this));
   }
 
   protected generateName(): void {
