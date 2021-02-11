@@ -20,24 +20,7 @@ export default class Default {
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected initJournaly() {
-    if (this.className) {
-      const methods = this.getAllMethods();
-      // console.log(this.element);
-      // console.log(methods);
-
-      for (const method of methods) {
-        const fullName = this.className + '.' + method;
-        // console.log(fullName);
-        if (
-          this.journaly &&
-          (!this.journaly.getTopics() ||
-            !this.journaly.getTopics().includes(fullName))
-        ) {
-          const boundedMethod = this[method].bind(this);
-          this.journaly.subscribe(fullName, boundedMethod);
-        }
-      }
-    }
+    this.addAllMethods();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -101,25 +84,30 @@ export default class Default {
       this.setJournaly(initDefault.journaly);
   }
 
-  private getAllMethods(): Array<any> {
-    let props = [];
+  private addAllMethods() {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     let obj = this;
-    do {
-      const newProps = Object.getOwnPropertyNames(obj);
-      props = props.concat(newProps as Array<never>);
-    } while ((obj = Object.getPrototypeOf(obj)));
-
-    return props.sort().filter((property, index, array) => {
-      if (
-        property != array[index + 1] &&
-        typeof this[property] == 'function' &&
-        property !== 'constructor' //&& //not the constructor
-        // (index == 0 || property !== array[index - 1]) //&& //not overriding in this prototype
-        // props.indexOf(property) === -1 //not overridden in a child
-      ) {
-        return true;
-      }
-    });
+    if (this.journaly && this.className)
+      do {
+        //! maybe a sort and filter is needed to remove same method.
+        for (const method of Object.getOwnPropertyNames(obj)) {
+          if (
+            typeof this[method] === 'function' &&
+            method !== 'constructor' //&& //not the constructor
+            // (index == 0 || property !== array[index - 1]) //&& //not overriding in this prototype
+            // props.indexOf(property) === -1 //not overridden in a child
+          ) {
+            const fullName = this.className + '.' + method;
+            // console.log(fullName);
+            if (
+              !this.journaly.getTopics() ||
+              !this.journaly.getTopics().includes(fullName)
+            ) {
+              const boundedMethod = this[method].bind(this);
+              this.journaly.subscribe(fullName, boundedMethod);
+            }
+          }
+        }
+      } while ((obj = Object.getPrototypeOf(obj)));
   }
 }
