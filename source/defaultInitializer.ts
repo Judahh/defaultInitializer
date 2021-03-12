@@ -1,11 +1,11 @@
 // file deepcode ignore no-any: any needed
-import { SubjectObserver } from 'journaly';
+import { SenderReceiver } from 'journaly';
 
 export default interface DefaultInitializer {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   journaly:
-    | SubjectObserver<any>
-    | SubjectObserver<unknown>
-    | SubjectObserver<never>
+    | SenderReceiver<any>
+    | SenderReceiver<unknown>
+    | SenderReceiver<never>
     | undefined;
 }
