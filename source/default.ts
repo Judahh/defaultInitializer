@@ -1,14 +1,14 @@
 // file deepcode ignore no-any: any needed
 import { settings } from 'ts-mixer';
 import DefaultInitializer from './defaultInitializer';
-import { SubjectObserver } from 'journaly';
+import { SenderReceiver } from 'journaly';
 settings.initFunction = 'init';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default class Default {
   protected journaly:
-    | SubjectObserver<any>
-    | SubjectObserver<unknown>
-    | SubjectObserver<never>
+    | SenderReceiver<any>
+    | SenderReceiver<unknown>
+    | SenderReceiver<never>
     | undefined;
   private className!: string;
   private name!: string;
@@ -26,9 +26,9 @@ export default class Default {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setJournaly(
     journaly:
-      | SubjectObserver<any>
-      | SubjectObserver<unknown>
-      | SubjectObserver<never>
+      | SenderReceiver<any>
+      | SenderReceiver<unknown>
+      | SenderReceiver<never>
   ) {
     this.journaly = journaly;
     this.initJournaly();
@@ -104,7 +104,7 @@ export default class Default {
               !this.journaly.getTopics().includes(fullName)
             ) {
               const boundedMethod = this[method].bind(this);
-              this.journaly.subscribe(fullName, boundedMethod);
+              this.journaly.subscribe(boundedMethod, fullName);
             }
           }
         }
