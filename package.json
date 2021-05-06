@@ -1,6 +1,6 @@
 {
   "name": "@flexiblepersistence/default-initializer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A default initilizer for flexiblepersistence",
   "keywords": [
     "initilizer",
