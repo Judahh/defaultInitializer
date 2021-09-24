@@ -1,6 +1,6 @@
 {
   "name": "@flexiblepersistence/default-initializer",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "description": "A default initilizer for flexiblepersistence",
   "keywords": [
     "initilizer",
@@ -35,7 +35,7 @@
     "journaly": "latest"
   },
   "devDependencies": {
-    "@types/jest": "latest",
+    "@types/jest": "26.0.24",
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
@@ -44,10 +44,10 @@
     "eslint-plugin-filenames": "latest",
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-import": "latest",
-    "jest": "latest",
+    "jest": "26.6.2",
     "prettier": "latest",
     "reflect-metadata": "latest",
-    "ts-jest": "latest",
+    "ts-jest": "26.5.6",
     "typescript": "latest"
   }
 }
