@@ -10,9 +10,9 @@ export default class Default {
     | SenderReceiver<unknown>
     | SenderReceiver<never>
     | undefined;
-  private className!: string;
-  private name!: string;
-  private type!: string;
+  protected className!: string;
+  protected name!: string;
+  protected type!: string;
 
   constructor(initDefault?: IDefault) {
     this.init(initDefault);
@@ -58,7 +58,7 @@ export default class Default {
     return this.type;
   }
 
-  private getConstructorName(object) {
+  protected getConstructorName(object) {
     let name = object.constructor.name;
     if (name.includes('_')) name = name.split('_')[1];
     return name;
@@ -84,7 +84,7 @@ export default class Default {
       this.setJournaly(initDefault.journaly);
   }
 
-  private addAllMethods() {
+  protected addAllMethods() {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     let obj = this;
     if (this.journaly && this.className)
