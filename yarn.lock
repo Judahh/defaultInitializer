@@ -644,9 +644,9 @@
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
 "@types/node@*", "@types/node@latest":
-  version "16.9.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.9.6.tgz#040a64d7faf9e5d9e940357125f0963012e66f04"
-  integrity sha512-YHUZhBOMTM3mjFkXVcK+WwAcYmyhe1wL4lfqNtzI0b3qAy7yuSetnM7QJazgE5PFmgVTNGiLOgRFfJMqW7XpSQ==
+  version "16.10.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.10.1.tgz#f3647623199ca920960006b3dccf633ea905f243"
+  integrity sha512-4/Z9DMPKFexZj/Gn3LylFgamNKHm4K3QDi0gz9B26Uk0c8izYf97B5fxfpspMNkWlFupblKM/nV8+NA9Ffvr+w==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -654,9 +654,9 @@
   integrity sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==
 
 "@types/prettier@^2.0.0":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.3.2.tgz#fc8c2825e4ed2142473b4a81064e6e081463d1b3"
-  integrity sha512-eI5Yrz3Qv4KPUa/nSIAi0h+qX0XyewOliug5F2QAtuRg6Kjg6jfmxe1GIwoIRhZspD1A0RP8ANrPwvEXXtRFog==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.4.0.tgz#900b13362610ccd3570fb6eefb911a6732973d00"
+  integrity sha512-WHRsy5nMpjXfU9B0LqOqPT06EI2+8Xv5NERy0pLxJLbU98q7uhcGogQzfX+rXpU7S5mgHsLxHrLCufZcV/P8TQ==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
@@ -1407,9 +1407,9 @@ domexception@^2.0.1:
     webidl-conversions "^5.0.0"
 
 electron-to-chromium@^1.3.846:
-  version "1.3.849"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.849.tgz#45a65a392565abc5b864624b9753393336426f4b"
-  integrity sha512-RweyW60HPOqIcxoKTGr38Yvtf2aliSUqX8dB3e9geJ0Bno0YLjcOX5F7/DPVloBkJWaPZ7xOM1A0Yme2T1A34w==
+  version "1.3.850"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.850.tgz#c56c72abfeab051b4b328beb894461c5912d0456"
+  integrity sha512-ZzkDcdzePeF4dhoGZQT77V2CyJOpwfTZEOg4h0x6R/jQhGt/rIRpbRyVreWLtD7B/WsVxo91URm2WxMKR9JQZA==
 
 emittery@^0.7.1:
   version "0.7.2"
@@ -2315,9 +2315,9 @@ is-generator-fn@^2.0.0:
   integrity sha512-cTIB4yPYL/Grw0EaSzASzg6bBy9gqCofvWN8okThAYIxKJZC+udlRAmGbM0XLeniEJSs8uEgHPGuHSe1XsOLSQ==
 
 is-glob@^4.0.0, is-glob@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.1.tgz#7567dbe9f2f5e2467bc77ab83c4a29482407a5dc"
-  integrity sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.2.tgz#859fc2e731e58c902f99fcabccb75a7dd07d29d8"
+  integrity sha512-ZZTOjRcDjuAAAv2cTBQP/lL59ZTArx77+7UzHdWW/XB1mrfp7DEaVpKmZ0XIzx+M7AxfhKcqV+nMetUQmFifwg==
   dependencies:
     is-extglob "^2.1.1"
 
@@ -2843,9 +2843,9 @@ jest@26.6.2:
     jest-cli "^26.6.2"
 
 journaly@latest:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/journaly/-/journaly-3.0.4.tgz#710886cfb578043e6339cce68653c8f171ca5a10"
-  integrity sha512-BkSQqlcWSwM2FDPGrDwUfR+WbFwsIaMuepO0zgSsZNinTpcUHFSs3PjcD/C2I8QDFOgDLq5RhoLAuv1JMfynWQ==
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/journaly/-/journaly-4.0.0.tgz#04538490743a60662551f800c9edd1ec41848a77"
+  integrity sha512-7Tw+Z3Y0ixoVDNJKSkBiwNyrh33U4j5zlz1lJNXCzQTUHEjoMsCZcIOGGqIMizDaXxvjXayqmPMQkwXCDHTjsw==
 
 js-tokens@^4.0.0:
   version "4.0.0"
