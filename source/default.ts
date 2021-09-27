@@ -1,6 +1,6 @@
 // file deepcode ignore no-any: any needed
 import { settings } from 'ts-mixer';
-import DefaultInitializer from './defaultInitializer';
+import IDefault from './iDefault';
 import { SenderReceiver } from 'journaly';
 settings.initFunction = 'init';
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -14,7 +14,7 @@ export default class Default {
   private name!: string;
   private type!: string;
 
-  constructor(initDefault?: DefaultInitializer) {
+  constructor(initDefault?: IDefault) {
     this.init(initDefault);
   }
 
@@ -76,7 +76,7 @@ export default class Default {
     this.setType('');
   }
 
-  protected init(initDefault?: DefaultInitializer): void {
+  protected init(initDefault?: IDefault): void {
     this.generateType();
     this.generateClassName();
     this.generateName();
