@@ -1,3 +1,3 @@
 import Default from './default';
-import DefaultInitializer from './defaultInitializer';
-export { Default, DefaultInitializer };
+import IDefault from './iDefault';
+export { Default, IDefault };
