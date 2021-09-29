@@ -12,7 +12,7 @@ export default class Default {
     | undefined;
   protected className!: string;
   protected name!: string;
-  protected type!: string;
+  protected type = '';
 
   constructor(initDefault?: IDefault) {
     this.init(initDefault);
