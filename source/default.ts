@@ -1,10 +1,8 @@
 // file deepcode ignore no-any: any needed
-import { settings } from 'ts-mixer';
 import IDefault from './iDefault';
 import { SenderReceiver } from 'journaly';
-settings.initFunction = 'init';
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default class Default {
+export default abstract class Default {
   protected journaly:
     | SenderReceiver<any>
     | SenderReceiver<unknown>
@@ -18,12 +16,6 @@ export default class Default {
     this.init(initDefault);
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected initJournaly() {
-    this.addAllMethods();
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setJournaly(
     journaly:
       | SenderReceiver<any>
@@ -31,7 +23,7 @@ export default class Default {
       | SenderReceiver<never>
   ) {
     this.journaly = journaly;
-    this.initJournaly();
+    this.addAllMethods();
   }
 
   setName(name: string): void {

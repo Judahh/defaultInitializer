@@ -1,6 +1,6 @@
 {
   "name": "@flexiblepersistence/default-initializer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A default initilizer for flexiblepersistence",
   "keywords": [
     "initilizer",
@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/Judahh/defaultInitializer#readme",
   "dependencies": {
-    "ts-mixer": "latest",
     "journaly": "latest"
   },
   "devDependencies": {
