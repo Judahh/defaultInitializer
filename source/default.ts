@@ -1,10 +1,9 @@
 // file deepcode ignore no-any: any needed
 import IDefault from './iDefault';
 import { SenderReceiver } from 'journaly';
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export default abstract class Default {
-  protected journaly:
-    | SenderReceiver<any>
+  protected journaly: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  | SenderReceiver<any>
     | SenderReceiver<unknown>
     | SenderReceiver<never>
     | undefined;
