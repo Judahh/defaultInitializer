@@ -77,6 +77,10 @@ export default abstract class Default {
 
   protected addAllMethods() {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
+    //! check email, auth, sequelizePersistence
+    // add just create, read, update, delete, other, options,
+    // authentication, permission, key, sign, sendVerification,
+    // removePermissionsAndInstances, getPersonAndIdentifications,
     let obj = this;
     if (this.journaly && this.className)
       do {
