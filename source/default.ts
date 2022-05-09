@@ -77,7 +77,7 @@ export default abstract class Default {
 
   protected addAllMethods() {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
-    //! check email, auth, sequelizePersistence
+    //! check email, auth (signUpService, dbHandler), sequelizePersistence
     // add just create, read, update, delete, other, options,
     // authentication, permission, key, sign, sendVerification,
     // removePermissionsAndInstances, getPersonAndIdentifications,
