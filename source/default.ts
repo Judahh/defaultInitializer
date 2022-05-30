@@ -114,12 +114,13 @@ export default abstract class Default {
     // add just create, read, update, delete, other, options,
     // authentication, permission, key, sign, sendVerification,
     // removePermissionsAndInstances, getPersonAndIdentifications,
-    let obj = this;
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    let currentObject = this;
     if (this.journaly && this.className)
       if (methods === Methods.all) {
         do {
           //! maybe a sort and filter is needed to remove same method.
-          for (const method of Object.getOwnPropertyNames(obj)) {
+          for (const method of Object.getOwnPropertyNames(currentObject)) {
             if (
               typeof this[method] === 'function' &&
               method !== 'constructor' //&& //not the constructor
@@ -137,7 +138,7 @@ export default abstract class Default {
               }
             }
           }
-        } while ((obj = Object.getPrototypeOf(obj)));
+        } while ((currentObject = Object.getPrototypeOf(currentObject)));
       } else {
         methods =
           methods === undefined || methods === null ? Methods.common : methods;
