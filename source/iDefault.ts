@@ -9,5 +9,5 @@ export default interface IDefault {
     | SenderReceiver<unknown>
     | SenderReceiver<never>
     | undefined;
-  methods: Methods | string[];
+  methods?: Methods | string[];
 }
