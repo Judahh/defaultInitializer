@@ -1,6 +1,7 @@
 // file deepcode ignore no-any: any needed
 import IDefault from './iDefault';
 import { SenderReceiver } from 'journaly';
+import Methods from './methods';
 export default abstract class Default {
   protected journaly: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   | SenderReceiver<any>
@@ -10,6 +11,37 @@ export default abstract class Default {
   protected className!: string;
   protected name!: string;
   protected type = '';
+  protected cRUDMethods = ['create', 'read', 'update', 'delete', 'other'];
+  protected baseMethods = [
+    ...this.cRUDMethods,
+    'createItem',
+    'createSingle',
+    'createArray',
+    'readByFilter',
+    'readItemById',
+    'readItem',
+    'readArray',
+    'updateByFilter',
+    'updateItem',
+    'updateArray',
+    'deleteByFilter',
+    'deleteItem',
+    'deleteItemById',
+    'deleteArray',
+    'other',
+  ];
+  protected commonMethods = [
+    ...this.baseMethods,
+    'options',
+    'authentication',
+    'permission',
+    'key',
+    'sign',
+    'sendVerification',
+    'removePermissionsAndInstances',
+    'getPersonAndIdentifications',
+    'resetPermissionsAndInstances',
+  ];
 
   constructor(initDefault?: IDefault) {
     this.init(initDefault);
@@ -22,7 +54,6 @@ export default abstract class Default {
       | SenderReceiver<never>
   ) {
     this.journaly = journaly;
-    this.addAllMethods();
   }
 
   setName(name: string): void {
@@ -71,11 +102,13 @@ export default abstract class Default {
     this.generateType();
     this.generateClassName();
     this.generateName();
-    if (initDefault && initDefault.journaly)
+    if (initDefault && initDefault.journaly) {
       this.setJournaly(initDefault.journaly);
+      this.addMethods(initDefault?.methods);
+    }
   }
 
-  protected addAllMethods() {
+  protected addMethods(methods?: Methods | string[]) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     //! check email, auth (signUpService, dbHandler), sequelizePersistence
     // add just create, read, update, delete, other, options,
@@ -83,26 +116,62 @@ export default abstract class Default {
     // removePermissionsAndInstances, getPersonAndIdentifications,
     let obj = this;
     if (this.journaly && this.className)
-      do {
-        //! maybe a sort and filter is needed to remove same method.
-        for (const method of Object.getOwnPropertyNames(obj)) {
-          if (
-            typeof this[method] === 'function' &&
-            method !== 'constructor' //&& //not the constructor
-            // (index == 0 || property !== array[index - 1]) //&& //not overriding in this prototype
-            // props.indexOf(property) === -1 //not overridden in a child
-          ) {
-            const fullName = this.className + '.' + method;
-            // console.log(fullName);
+      if (methods === Methods.all) {
+        do {
+          //! maybe a sort and filter is needed to remove same method.
+          for (const method of Object.getOwnPropertyNames(obj)) {
             if (
-              !this.journaly.getTopics() ||
-              !this.journaly.getTopics().includes(fullName)
+              typeof this[method] === 'function' &&
+              method !== 'constructor' //&& //not the constructor
+              // (index == 0 || property !== array[index - 1]) //&& //not overriding in this prototype
+              // props.indexOf(property) === -1 //not overridden in a child
             ) {
-              const boundedMethod = this[method].bind(this);
-              this.journaly.subscribe(boundedMethod, fullName);
+              const fullName = this.className + '.' + method;
+              // console.log(fullName);
+              if (
+                !this.journaly.getTopics() ||
+                !this.journaly.getTopics().includes(fullName)
+              ) {
+                const boundedMethod = this[method].bind(this);
+                this.journaly.subscribe(boundedMethod, fullName);
+              }
             }
           }
+        } while ((obj = Object.getPrototypeOf(obj)));
+      } else {
+        methods =
+          methods === undefined || methods === null ? Methods.common : methods;
+        switch (methods) {
+          case Methods.cRUD:
+            methods = this.cRUDMethods;
+            break;
+
+          case Methods.base:
+            methods = this.baseMethods;
+            break;
+
+          case Methods.common:
+            methods = this.commonMethods;
+            break;
+
+          case Methods.none:
+            return;
+
+          default:
+            break;
         }
-      } while ((obj = Object.getPrototypeOf(obj)));
+        for (const method of methods) {
+          const fullName = this.className + '.' + method;
+          // console.log(fullName);
+          if (
+            (!this.journaly.getTopics() ||
+              !this.journaly.getTopics().includes(fullName)) &&
+            this[method]
+          ) {
+            const boundedMethod = this[method]?.bind(this);
+            this.journaly.subscribe(boundedMethod, fullName);
+          }
+        }
+      }
   }
 }

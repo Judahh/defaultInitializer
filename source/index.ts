@@ -1,3 +1,4 @@
 import Default from './default';
 import IDefault from './iDefault';
-export { Default, IDefault };
+import Methods from './methods';
+export { Default, IDefault, Methods };
