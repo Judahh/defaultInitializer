@@ -1,6 +1,6 @@
 {
   "name": "@flexiblepersistence/default-initializer",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A default initilizer for flexiblepersistence",
   "keywords": [
     "initilizer",
@@ -25,7 +25,7 @@
     "url": "git+https://github.com/Judahh/defaultInitializer.git"
   },
   "author": "Judah Holanda Correia Lima <judahholanda7@gmail.com> (https://judahh.com)",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Judahh/defaultInitializer/issues"
   },
